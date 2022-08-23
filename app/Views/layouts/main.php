@@ -30,7 +30,7 @@
             <div class="w-100 d-flex justify-content-between">
                 <div>
                     <i class="fa fa-envelope mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">LoyaltyCard@gmail.com</a>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">NoMoreWaste@gmail.com</a>
                     <i class="fa-solid fa-phone-flip mx-2"></i>
                     <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">01 22 34 65 75</a>
                 </div>
@@ -52,7 +52,7 @@
         <div class="container d-flex justify-content-between align-items-center">
 
             <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
-                LoyaltyCard
+                NoMoreWaste
             </a>
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -142,10 +142,10 @@
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-success"><b>LoyaltyCard</b> eCommerce</h1>
+                                <h1 class="h1 text-success"><b>NoMoreWaste</b> eCommerce</h1>
                                 <h3 class="h2">Parfait pour des achats moins chère</h3>
                                 <p>
-                                   LoyaltyCard est une entreprise qui a plusieurs partenaire pour votre bonheure <a rel="sponsored" class="text-success" href="about.html" target="_blank">Notre histoire</a>,
+                                   NoMoreWaste est une entreprise qui a plusieurs partenaire pour votre bonheure <a rel="sponsored" class="text-success" href="about.html" target="_blank">Notre histoire</a>,
                         
                                 </p>
                             </div>
@@ -208,7 +208,7 @@
             <div class="row">
 
                 <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">LoyaltyCard</h2>
+                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">NoMoreWaste</h2>
                     <ul class="list-unstyled text-light footer-link-list">
                         <li>
                             <i class="fas fa-map-marker-alt fa-fw"></i>
@@ -220,7 +220,7 @@
                         </li>
                         <li>
                             <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="mailto:info@company.com">Loyaltycard@gmail.com</a>
+                            <a class="text-decoration-none" href="mailto:info@company.com">NoMoreWaste@gmail.com</a>
                         </li>
                     </ul>
                 </div>
@@ -231,8 +231,8 @@
                 <div class="row pt-2">
                     <div class="col-12">
                         <p class="text-left text-light">
-                            Copyright &copy; 2022 LoyaltyCard
-                            | Designed by Matiss Haillouy Neil Chaou Elias Guerfa
+                            Copyright &copy; 2022 NoMoreWaste
+                            | Designed by Matiss Haillouy
                         </p>
                     </div>
                 </div>
@@ -281,6 +281,26 @@
               <div class="mb-3 d-grid text-center form-group">
                 <label for="signup-mail" class="form-label">Adresse Email</label>
                 <input class="form-control" type="email" id="signup-mail" name="signup-mail" placeholder="Votre email">
+              </div>
+              <div class="mb-3 d-grid text-center form-group">
+                <label for="signup-address" class="form-label">Adresse</label>
+                <input class="form-control" type="text" id="signup-address" name="signup-address" placeholder="Votre address">
+              </div>
+              <div class="mb-3 d-grid text-center form-group">
+                <label for="signup-city" class="form-label">Ville </label>
+                <input class="form-control" type="text" id="signup-city" name="signup-city" placeholder="Votre ville">
+              </div>
+              <div class="mb-3 d-grid text-center form-group">
+                <label for="signup-zipcode" class="form-label">Code Postal </label>
+                <input class="form-control" type="number" id="signup-zipcode" name="signup-zipcode" placeholder="Votre code postal">
+              </div>
+              <div class="mb-3 d-grid text-center form-group">
+                <label for="signup-country" class="form-label">Pays </label>
+                <input class="form-control" type="text" id="signup-country" name="signup-country" placeholder="Votre pays">
+              </div>
+              <div class="mb-3 d-grid text-center form-group">
+                <label for="signup-phone" class="form-label">Téléphone </label>
+                <input class="form-control" type="number" id="signup-phone" name="signup-phone" placeholder="Votre téléphone">
               </div>
               <div class="mb-3 d-grid text-center form-group">
                 <label for="signup-password" class="form-label">Mot de Passe</label>

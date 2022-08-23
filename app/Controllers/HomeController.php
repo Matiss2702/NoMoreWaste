@@ -88,7 +88,7 @@ class HomeController extends BaseController
             return $this->fail($this->validator->getErrors());
         }
 
-        $userInfo = [
+        $BenevolesInfo = [
             'lastname' => $data['lastname'],
             'firstname' => $data['firstname'],
             'body' => $data['body']
@@ -96,9 +96,9 @@ class HomeController extends BaseController
         $email = \Config\Services::email(); // loading for use
         $email->setTo('matiss.haillouy@gmail.com');
         $email->setFrom($data['mail']);
-        $email->setSubject('Formulaire de contact LoyaltyCard');
+        $email->setSubject('Formulaire de contact NoMoreWaste');
         // Using a custom template
-        $template = view('mail/contact-mail', $userInfo);
+        $template = view('mail/contact-mail', $BenevolesInfo);
         $email->setMessage($template);
         // Send email
         $response = [

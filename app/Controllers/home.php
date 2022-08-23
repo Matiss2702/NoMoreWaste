@@ -2,9 +2,6 @@
 
 <?= $this->section('content') ?>
 <div class="row">
-    <?php 
-    foreach($this->data['product'] as $key => $product){
-    ?>
         <div class="col-md-3">
             <div class="card product-wap" style="border-radius: 1rem;">
                 <div class="card" style="padding: 0.4rem;border-radius: 1rem;">
@@ -22,6 +19,5 @@
                 </div>
             </div>
         </div>
-    <?php }?>
 </div>
 <?= $this->endSection() ?>

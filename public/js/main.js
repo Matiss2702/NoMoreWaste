@@ -33,13 +33,18 @@ function register(csrf_token) {
   lastname = $('#signup-lastname').val()
   firstname = $('#signup-firstname').val()
   mail = $('#signup-mail').val()
+  address = $('#signup-address').val()
+  city = $('#signup-city').val()
+  zipcode = $('#signup-zipcode').val()
+  country = $('#signup-country').val()
+  phone = $('#signup-phone').val()
   password = $('#signup-password').val()
   pass_confirm = $('#signup-password-confirm').val()
 
   $.ajax({
     url: "/register/",
     type: 'POST',
-    data: { lastname: lastname, firstname: firstname, mail: mail, password: password, pass_confirm: pass_confirm ,csrf_token_name: csrf_token },
+    data: { lastname: lastname, firstname: firstname, mail: mail,address: address,city: city,zipcode: zipcode,country: country,phone: phone, password: password, pass_confirm: pass_confirm ,csrf_token_name: csrf_token },
     success: function (reponse) {
       toastr.options.timeOut = 750;
       toastr.options.fadeOut = 1000;
@@ -130,7 +135,7 @@ function profile(csrf_token) {
   address = $('#address').val()
   zipcode = $('#zipcode').val()
   city = $('#city').val()
-  city = $('#city').val()
+  country = $('#country').val()
   phone = $('#phone').val()
   let data = {  lastname: lastname, firstname: firstname,address: address,zipcode: zipcode,city: city, country: country ,phone: phone,csrf_token_name: csrf_token }
   if($("#check-pwd").is(":checked")){

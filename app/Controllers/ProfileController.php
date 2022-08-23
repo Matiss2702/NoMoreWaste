@@ -74,6 +74,13 @@ class ProfileController extends BaseController {
                 'numeric'=>'il doit contenir que des chiffres',
               ]
             ],
+            'phone'=>[
+              'rules'=>'numeric|required',
+              'errors'=>[
+                'required'=>'le telephone doit etre donnée',
+                'numeric'=>'il doit contenir que des chiffres',
+              ]
+            ],
           ];
           $password = $this->request->getPost('password');
           if(isset($password)){
@@ -102,6 +109,7 @@ class ProfileController extends BaseController {
             'city' =>  $this->request->getPost('city'),
             'zipcode' =>  $this->request->getPost('zipcode'),
             'country' =>  $this->request->getPost('country'),
+            'phone' =>  $this->request->getPost('phone'),
            ];
            
            

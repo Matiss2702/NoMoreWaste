@@ -16,6 +16,11 @@ class RegisterController extends BaseController {
                 'lastname' => $this->request->getPost('lastname'),
                 'firstname' => $this->request->getPost('firstname'),
                 'mail' => $this->request->getPost('mail'),
+                'address' => $this->request->getPost('address'),
+                'city' => $this->request->getPost('city'),
+                'zipcode' => $this->request->getPost('zipcode'),
+                'country' => $this->request->getPost('country'),
+                'phone' => $this->request->getPost('phone'),
                 'password' => sha1($this->request->getPost('password')),
         ];
 
@@ -46,6 +51,51 @@ class RegisterController extends BaseController {
               'is_unique' => 'le mail est déjà utilisé',
             ]
           ],
+          'address' => [
+            'rules' =>'required|alpha_numeric_space|min_length[3]|max_length[10]',
+            'errors' =>  [
+              'required' => 'l\'adresse est requis',
+              'alpha_numeric_space' => 'l\'adresse ne doit pas contenir de caractere spéciaux' ,
+              'min_length' => 'l\'adresse doit contenir 3 caractere minimun',
+              'max_length' => ' l\'adresse doit contenir 10 caractere maximun',
+            ]
+          ],
+          'city' => [
+            'rules' =>'required|alpha_numeric_space|min_length[3]|max_length[10]',
+            'errors' =>  [
+              'required' => 'la ville est requis',
+              'alpha_numeric_space' => 'la ville ne doit pas contenir de caractere spéciaux' ,
+              'min_length' => 'la ville doit contenir 3 caractere minimun',
+              'max_length' => ' la ville doit contenir 10 caractere maximun',
+            ]
+          ],
+          'zipcode' => [
+            'rules' =>'required|numeric|min_length[5]|max_length[5]',
+            'errors' =>  [
+              'required' => 'le code postal est requis',
+              'numeric' => 'le code postal ne doit que des nombres' ,
+              'min_length' => 'le code postal doit contenir 5 caractere minimun',
+              'max_length' => ' le code postal doit contenir 5 caractere maximun',
+            ]
+          ],
+          'country' => [
+            'rules' =>'required|alpha_numeric_space|min_length[3]|max_length[20]',
+            'errors' =>  [
+              'required' => 'le pays est requis',
+              'alpha_numeric_space' => 'le pays ne doit pas contenir de caractere spéciaux' ,
+              'min_length' => 'le pays doit contenir 3 caractere minimun',
+              'max_length' => ' le pays doit contenir 10 caractere maximun',
+            ]
+          ],
+          'phone' => [
+            'rules' =>'required|numeric|min_length[10]|max_length[10]',
+            'errors' =>  [
+              'required' => 'le telephone est requis',
+              'numeric' => 'le telephone ne doit que des nombres' ,
+              'min_length' => 'le telephone doit contenir 10 caractere minimun',
+              'max_length' => ' le telephone doit contenir 10 caractere maximun',
+            ]
+          ],
           'password' => [
             'rules' =>'required|min_length[8]',
             'errors' =>  [
@@ -69,12 +119,16 @@ class RegisterController extends BaseController {
           $BenevolesInfo = [
               'lastname' => $data['lastname'],
               'firstname' => $data['firstname'],
+              'city' => $data['city'],
+              'zipcode' => $data['zipcode'],
+              'country' => $data['country'],
+              'phone' => $data['phone'],
               'url' => 'confirm/'.$id.'a'.sha1($data['mail'])
 
           ];
           $email = \Config\Services::email(); // loading for use
           $email->setTo($data['mail']);
-          $email->setSubject('Activation de Votre Compte LoyaltyCard');
+          $email->setSubject('Activation de Votre Compte NoMoreWaste');
           // Using a custom template
           $template = view('mail/activate-mail', $BenevolesInfo);
           $email->setMessage($template);
