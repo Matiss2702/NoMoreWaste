@@ -4,12 +4,12 @@ namespace App\Controllers\Admin;
 
 use CodeIgniter\RESTful\ResourcePresenter;
 use CodeIgniter\API\ResponseTrait;
-use App\Models\GroupModel;
+use App\Models\JobsModel;
 use CodeIgniter\I18n\Time;
 
-class UserController extends ResourcePresenter
+class BenevolesController extends ResourcePresenter
 {
-    protected $modelName = 'App\Models\UserModel';
+    protected $modelName = 'App\Models\BenevolesModel';
     use ResponseTrait;
     /**
      * Present a view of resource objects
@@ -18,15 +18,15 @@ class UserController extends ResourcePresenter
      */
     public function index()
     {
-        $groupModel = new GroupModel();
         $session = \Config\Services::session();
+        $JobsModel = new JobsModel();
         $data = [
-            'title' => 'utilisater',
-            'users' => $this->model->findAll(),
-            'group' => $groupModel->findAll(),
+            'title' => 'benevoles',
+            'benevoles' => $this->model->findAll(),
+            'id_jobs' => $JobsModel->findAll(),
             'is_login' => $session->get('isLoggedIn'),
         ];
-        return view('admin/user', $data);
+        return view('admin/benevoles', $data);
     }
 
     /**
@@ -39,15 +39,15 @@ class UserController extends ResourcePresenter
     public function show($id = null)
     {
         $session = \Config\Services::session();
-        $groupModel = new GroupModel();
+        $JobsModel = new JobsModel();
         $data = [
-            'title'=> 'utilisateur',
-            'user' => $this->model->find($id),
-            'group_id' => $groupModel->find($this->model->find($id)['group_id'],),
+            'title'=> 'benevoles',
+            'benevoles' => $this->model->find($id),
+            'id_jobs' => $JobsModel->find($this->model->find($id)['id_jobs'],),
             'is_login' => $session->get('isLoggedIn'),
         ];
 
-        return view('admin/show_user', $data);
+        return view('admin/show_benevoles', $data);
     }
 
     /**
@@ -69,9 +69,9 @@ class UserController extends ResourcePresenter
             'city' => $this->request->getVar('city'),
             'zipcode' => $this->request->getVar('zipcode'),
             'country' => $this->request->getVar('country'),
-            'group_id' => $this->request->getVar('group_id'),
-            'fidelity_points' => $this->request->getVar('fidelity_points'),
-            'status' => $this->request->getVar('status'),
+            'id_jobs' => $this->request->getVar('id_jobs'),
+            'phone' => $this->request->getVar('phone'),
+            'valided' => $this->request->getVar('valided'),
         ];
         $rules = [
 
@@ -136,20 +136,20 @@ class UserController extends ResourcePresenter
                     'numeric' => 'il doit contenir que des chiffres',
                 ]
             ],
-            'group_id' => [
+            'id_jobs' => [
                 'rules' => 'numeric|required',
                 'errors' => [
                     'required' => 'le code postale doit etre donnée',
                     'numeric' => 'il doit contenir que des chiffres',
                 ]
             ],
-            'fidelity_points' => [
+            'phone' => [
                 'rules' => 'numeric',
                 'errors' => [
                     'numeric' => 'il doit contenir que des chiffres',
                 ]
             ],
-            'status' => [
+            'valided' => [
                 'rules' => 'numeric|required|max_length[1]|min_length[0]',
                 'errors' => [
                     'required' => 'le code postale doit etre donnée',
@@ -194,9 +194,9 @@ class UserController extends ResourcePresenter
             'city' => $this->request->getVar('city'),
             'zipcode' => $this->request->getVar('zipcode'),
             'country' => $this->request->getVar('country'),
-            'group_id' => $this->request->getVar('group_id'),
-            'fidelity_points' => $this->request->getVar('fidelity_points'),
-            'status' => $this->request->getVar('status'),
+            'id_jobs' => $this->request->getVar('id_jobs'),
+            'phone' => $this->request->getVar('phone'),
+            'valided' => $this->request->getVar('valided'),
             'modified_at' => Time::now()->toDateTimeString(),
         ];
         $rules = [
@@ -261,20 +261,20 @@ class UserController extends ResourcePresenter
                     'numeric'=>'il doit contenir que des chiffres',
                 ]
             ],
-            'group_id' => [
+            'id_jobs' => [
                 'rules' => 'numeric|required',
                 'errors' => [
                     'required' => 'le code postale doit etre donnée',
                     'numeric' => 'il doit contenir que des chiffres',
                 ]
             ],
-            'fidelity_points' => [
+            'phone' => [
                 'rules' => 'numeric',
                 'errors' => [
                     'numeric' => 'il doit contenir que des chiffres',
                 ]
             ],
-            'status' => [
+            'valided' => [
                 'rules' => 'numeric|required|max_length[1]|min_length[0]',
                 'errors' => [
                     'required' => 'le code postale doit etre donnée',
