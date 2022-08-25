@@ -6,13 +6,13 @@ function sign_in() {
     $('#sign-in-tab').addClass('show active')
 }
 
-function adminssign_in() {
-   $('#sign-in').addClass('active')
-   $('#sign-up').removeClass('active')
-   $('#reset-tab').removeClass('show active')
-   $('#sign-up-tab').removeClass('show active')
-   $('#sign-in-tab').addClass('show active')
-}
+// function adminssign_in() {
+//    $('#sign-in').addClass('active')
+//    $('#sign-up').removeClass('active')
+//    $('#reset-tab').removeClass('show active')
+//    $('#sign-up-tab').removeClass('show active')
+//    $('#sign-in-tab').addClass('show active')
+// }
 
 function sign_up() {
      $('#sign-up').addClass('active')

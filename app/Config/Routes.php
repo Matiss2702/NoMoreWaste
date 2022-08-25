@@ -50,6 +50,18 @@ $routes->post('/reset_confirm', 'ForgotPasswordController::reset_confirm');
 $routes->get('/profile', 'ProfileController::profile');
 $routes->post('/update','ProfileController::update');
 $routes->post('/add_cart/(:num)','ProductController::add_cart/$1');
+
+
+$routes->get('/administrator', 'admin\AuthController::administrator');
+$routes->presenter('/admins', ['controller' => 'admin\AdminsController', 'except' => 'new,edit,remove']);
+$routes->presenter('/benevoles', ['controller' => 'admin\BenevolesController', 'except' => 'new,edit,remove']);
+$routes->presenter('/conditions', ['controller' => 'admin\ConditionsController', 'except' => 'new,edit,remove']);
+$routes->presenter('/disponibilitys', ['controller' => 'admin\DisponibilitysController', 'except' => 'new,edit,remove']);
+$routes->presenter('/has_conditions', ['controller' => 'admin\Has_ConditionsController', 'except' => 'new,edit,remove']);
+$routes->presenter('/jobs', ['controller' => 'admin\JobsController', 'except' => 'new,edit,remove']);
+$routes->presenter('/necessitys', ['controller' => 'admin\NecessitysController', 'except' => 'new,edit,remove']);
+$routes->presenter('/plannings', ['controller' => 'admin\PlanningsController', 'except' => 'new,edit,remove']);
+$routes->presenter('/tasks', ['controller' => 'admin\TasksController', 'except' => 'new,edit,remove']);
 //Routes Api
 // $routes->group('api', function ($routes) {
 //     $routes->post('login', 'Api\LoginController::index');
@@ -67,20 +79,9 @@ $routes->post('/add_cart/(:num)','ProductController::add_cart/$1');
 //     $routes->resource('order_product', ['controller' => 'Api\OrderProductController', 'except' => 'new,edit,remove']);
 // });
 //Routes Admin
-$routes->group('admins', ['filter' => 'admins'], function ($routes) {
-    $routes->get('/', 'Admin\HomeController::index');
-    $routes->post('login', 'Admin\AuthController::login');
-    $routes->get('logout', 'Admin\AuthController::logout');  
-    $routes->presenter('admins', ['controller' => 'Admin\UserController', 'except' => 'new,edit,remove']);
-    $routes->presenter('benevoles', ['controller' => 'Admin\CompagnyController', 'except' => 'new,edit,remove']);
-    $routes->presenter('conditions', ['controller' => 'Admin\GroupController', 'except' => 'new,edit,remove']);
-    $routes->presenter('disponibilitys', ['controller' => 'Admin\OrderController', 'except' => 'new,edit,remove']);
-    $routes->presenter('has_conditions', ['controller' => 'Admin\OrderProductController', 'except' => 'new,edit,remove']);
-    $routes->presenter('jobs', ['controller' => 'Admin\PartnerController', 'except' => 'new,edit,remove']);
-    $routes->presenter('necessityq', ['controller' => 'Admin\ProductTypeController', 'except' => 'new,edit,remove']);
-    $routes->presenter('plannings', ['controller' => 'Admin\StockController', 'except' => 'new,edit,remove']);
-    $routes->presenter('tasks', ['controller' => 'Admin\SubscriptionController', 'except' => 'new,edit,remove']);
-});
+// $routes->group('admins', ['filter' => 'admins'], function ($routes) {
+//     $routes->get('/', 'Admin\HomeController::index');
+// });
 
 
 

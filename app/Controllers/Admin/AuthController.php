@@ -30,6 +30,7 @@ class AuthController extends BaseController {
                         'message' =>  'connexion réussi'
                     ];
                     return $this->respond($response);
+                    redirect('/admin');
                 }else{
                     return $this->fail('mauvais mot de passe');
                 }
