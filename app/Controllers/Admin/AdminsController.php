@@ -23,7 +23,7 @@ class AdminsController extends ResourcePresenter
             'Admins' => $this->model->findAll(),
             'is_login' => $session->get('isLoggedIn'),
         ];
-        return view('admin/Admins', $data);
+        return view('admin/admins', $data);
     }
 
     /**
@@ -42,7 +42,7 @@ class AdminsController extends ResourcePresenter
             'is_login' => $session->get('isLoggedIn'),
         ];
 
-        return view('admin/show_Admins', $data);
+        return view('admin/show_admins', $data);
     }
 
     /**

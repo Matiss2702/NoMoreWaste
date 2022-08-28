@@ -23,7 +23,7 @@ class ConditionsController extends ResourcePresenter
             'Conditions' => $this->model->findAll(),
             'is_login' => $session->get('isLoggedIn'),
         ];
-        return view('admin/Conditions', $data);
+        return view('admin/conditions', $data);
     }
 
     /**
@@ -42,7 +42,7 @@ class ConditionsController extends ResourcePresenter
             'is_login' => $session->get('isLoggedIn'),
         ];
 
-        return view('admin/show_Conditions', $data);
+        return view('admin/show_conditions', $data);
     }
 
     /**

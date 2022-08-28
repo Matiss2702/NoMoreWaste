@@ -32,13 +32,8 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'HomeController::index');
-$routes->get('/webgl', 'HomeController::webgl');
-$routes->get('/faq', 'HomeController::faq');
 $routes->post('/contact', 'HomeController::contact');
-$routes->post('/cart', 'CartController::index');
-$routes->post('/checkout', 'CartController::checkout');
-$routes->post('/remove_cart', 'CartController::remove');
-$routes->post('/update_cart', 'CartController::update');
+$routes->get('/recette', 'HomeController::recette');
 $routes->post('/add_image', 'UploadController::add_image');
 $routes->post('/login', 'AuthController::login');
 $routes->get('/logout', 'AuthController::logout');
@@ -49,39 +44,23 @@ $routes->get('/reset/(:hash)', 'ForgotPasswordController::reset/$1');
 $routes->post('/reset_confirm', 'ForgotPasswordController::reset_confirm');
 $routes->get('/profile', 'ProfileController::profile');
 $routes->post('/update','ProfileController::update');
-$routes->post('/add_cart/(:num)','ProductController::add_cart/$1');
+$routes->get('/administrator', 'AdminAuthController::administrator');
+$routes->post('/login_admin', 'AdminAuthController::login');
+$routes->get('/logout_admin', 'AdminAuthController::logout');
 
-
-$routes->get('/administrator', 'admin\AuthController::administrator');
-$routes->presenter('/admins', ['controller' => 'admin\AdminsController', 'except' => 'new,edit,remove']);
-$routes->presenter('/benevoles', ['controller' => 'admin\BenevolesController', 'except' => 'new,edit,remove']);
-$routes->presenter('/conditions', ['controller' => 'admin\ConditionsController', 'except' => 'new,edit,remove']);
-$routes->presenter('/disponibilitys', ['controller' => 'admin\DisponibilitysController', 'except' => 'new,edit,remove']);
-$routes->presenter('/has_conditions', ['controller' => 'admin\Has_ConditionsController', 'except' => 'new,edit,remove']);
-$routes->presenter('/jobs', ['controller' => 'admin\JobsController', 'except' => 'new,edit,remove']);
-$routes->presenter('/necessitys', ['controller' => 'admin\NecessitysController', 'except' => 'new,edit,remove']);
-$routes->presenter('/plannings', ['controller' => 'admin\PlanningsController', 'except' => 'new,edit,remove']);
-$routes->presenter('/tasks', ['controller' => 'admin\TasksController', 'except' => 'new,edit,remove']);
-//Routes Api
-// $routes->group('api', function ($routes) {
-//     $routes->post('login', 'Api\LoginController::index');
-//     $routes->get('profile','Api\ProfileController::index',['filter'=>'api-auth']);
-//     $routes->resource('product', ['controller' => 'Api\ProductController', 'except' => 'new,edit,remove']);
-//     $routes->resource('benevoles', ['controller' => 'Api\UserController', 'except' => 'new,edit,remove']);
-//     $routes->resource('group', ['controller' => 'Api\GroupController', 'except' => 'new,edit,remove']);
-//     $routes->resource('subscription', ['controller' => 'Api\SubscriptionController', 'except' => 'new,edit,remove']);
-//     $routes->resource('company', ['controller' => 'Api\CompanyController', 'except' => 'new,edit,remove']);
-//     $routes->resource('partner', ['controller' => 'Api\PartnerController', 'except' => 'new,edit,remove']);
-//     $routes->resource('warehouse', ['controller' => 'Api\WarehouseController', 'except' => 'new,edit,remove']);
-//     $routes->resource('stock', ['controller' => 'Api\StockController', 'except' => 'new,edit,remove']);
-//     $routes->resource('type_product', ['controller' => 'Api\ProductTypeController', 'except' => 'new,edit,remove']);
-//     $routes->resource('order', ['controller' => 'Api\OrderController', 'except' => 'new,edit,remove']);
-//     $routes->resource('order_product', ['controller' => 'Api\OrderProductController', 'except' => 'new,edit,remove']);
-// });
 //Routes Admin
-// $routes->group('admins', ['filter' => 'admins'], function ($routes) {
-//     $routes->get('/', 'Admin\HomeController::index');
-// });
+$routes->group('admin', ['filter' => 'admin'], function ($routes) {
+    $routes->get('/', 'Admin\HomeController::index');
+    $routes->presenter('admins', ['controller' => 'Admin\AdminsController', 'except' => 'new,edit,remove']);
+    $routes->presenter('benevoles', ['controller' => 'Admin\BenevolesController', 'except' => 'new,edit,remove']);
+    $routes->presenter('conditions', ['controller' => 'Admin\ConditionsController', 'except' => 'new,edit,remove']);
+    $routes->presenter('disponibilitys', ['controller' => 'Admin\DisponibilitysController', 'except' => 'new,edit,remove']);
+    $routes->presenter('has_conditions', ['controller' => 'Admin\Has_ConditionsController', 'except' => 'new,edit,remove']);
+    $routes->presenter('jobs', ['controller' => 'Admin\JobsController', 'except' => 'new,edit,remove']);
+    $routes->presenter('necessitys', ['controller' => 'Admin\NecessitysController', 'except' => 'new,edit,remove']);
+    $routes->presenter('plannings', ['controller' => 'Admin\PlanningsController', 'except' => 'new,edit,remove']);
+    $routes->presenter('tasks', ['controller' => 'Admin\TasksController', 'except' => 'new,edit,remove']);
+});
 
 
 

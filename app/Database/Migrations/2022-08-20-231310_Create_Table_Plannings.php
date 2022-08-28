@@ -19,6 +19,26 @@ class Create_Table_Plannings extends Migration
                 'unsigned' => true,
                 'null' => true,
             ],
+            'lundi' => [
+                'type' => 'INT',
+                'constraint' => '8',
+            ],
+            'mardi' => [
+                'type' => 'INT',
+                'constraint' => '8',
+            ],
+            'mercredi' => [
+                'type' => 'INT',
+                'constraint' => '8',
+            ],
+            'jeudi' => [
+                'type' => 'INT',
+                'constraint' => '8',
+            ],
+            'vendredi' => [
+                'type' => 'INT',
+                'constraint' => '8',
+            ],        
             'id_disponibilitys' => [
                 'type' => 'INT',
                 'unsigned' => true,

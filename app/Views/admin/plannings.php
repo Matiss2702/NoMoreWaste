@@ -21,11 +21,11 @@
       </tr>
     </thead>
     <tbody>
-      <?php foreach ($Plannings as $Planning) : ?>
+      <?php foreach ($planning as $Plannings) : ?>
         <tr>
-          <td><?= $Planning['id'] ?></td>
+          <td><?= $Plannings['id'] ?></td>
       <?php foreach ($id_benevoles as $id_Benevoles) : ?>
-        <?php if ($id_Benevoles['id'] ==$Planning['id_benevoles']):?>
+        <?php if ($id_Benevoles['id'] ==$Plannings['id_benevoles']):?>
           <td><?= $id_Benevoles['firstname'] ?></td>
           <td><?= $id_Benevoles['lastname'] ?></td>
         <?php endif; ?>
@@ -33,15 +33,15 @@
 
 
         <?php foreach ($id_disponibilitys as $id_Disponibilitys) : ?>
-        <?php if ($id_Disponibilitys['id'] ==$Planning['id_benevoles']):?>
+        <?php if ($id_Disponibilitys['id'] ==$Plannings['id_benevoles']):?>
           <td><?= $id_Disponibilitys['start'] ?></td>
           <td><?= $id_Disponibilitys['end'] ?></td>
         <?php endif; ?>
         <?php endforeach; ?>
 
 
-          <td><button type="button" class="btn btn-outline-success" onclick="modify_Plannings('<?= $Planning['id'] ?>', '<?= $Planning['id_benevoles'] ?>', '<?= $Planning['id_disponibilitys'] ?>')" data-bs-toggle="modal" data-bs-target="#modify-modal"><i class="fa-solid fa-pen"></i></button></td>
-          <td><button type="button" class="btn btn-outline-success" onclick="delete_modal('<?= $Planning['id'] ?>')" data-bs-toggle="modal" data-bs-target="#delete-modal"><i class="fa-solid fa-trash-can"></i></button></td>
+          <td><button type="button" class="btn btn-outline-success" onclick="modify_Plannings('<?= $Plannings['id'] ?>', '<?= $Plannings['id_benevoles'] ?>', '<?= $Plannings['id_disponibilitys'] ?>')" data-bs-toggle="modal" data-bs-target="#modify-modal"><i class="fa-solid fa-pen"></i></button></td>
+          <td><button type="button" class="btn btn-outline-success" onclick="delete_modal('<?= $Plannings['id'] ?>')" data-bs-toggle="modal" data-bs-target="#delete-modal"><i class="fa-solid fa-trash-can"></i></button></td>
         </tr>
       <?php endforeach; ?>
     </tbody>
@@ -101,7 +101,7 @@
         <div class="modal-body">
         <div class="mb-3 d-grid text-center form-group">
             <label for="modify-id" class="form-label d-none">id</label>
-            <input class="form-control d-none" type="text" id="modify-id" name="modify-id" value="id" value="<?= $Planning['id'] ?>">
+            <input class="form-control d-none" type="text" id="modify-id" name="modify-id" value="id" value="<?= $Plannings['id'] ?>">
           </div>
           <div class="mb-3 d-grid text-center form-group">
             <label for="modify-id_benevoles" class="form-label">id_benevoles</label>

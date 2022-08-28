@@ -29,7 +29,7 @@
           <td><?= $Task['end'] ?></td>
           <td><?= $Task['place_start'] ?></td>
           <?php foreach ($id_benevoles as $id_Benevoles) : ?>
-        <?php if ($id_Benevoles['id'] ==$Planning['id_benevoles']):?>
+        <?php if ($id_Benevoles['id'] ==$Task['id_benevoles']):?>
           <td><?= $id_Benevoles['firstname'] ?></td>
           <td><?= $id_Benevoles['lastname'] ?></td>
         <?php endif; ?>

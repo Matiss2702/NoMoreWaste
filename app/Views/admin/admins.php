@@ -19,7 +19,7 @@
       </tr>
     </thead>
     <tbody>
-      <?php foreach ($admins as $admin) : ?>
+      <?php foreach ($Admins as $admin) : ?>
         <tr>
           <td><?= $admin['id'] ?></td>
           <td><?= $admin['mail'] ?></td>
@@ -85,7 +85,7 @@
         <div class="modal-body">
         <div class="mb-3 d-grid text-center form-group">
             <label for="modify-id" class="form-label">id</label>
-            <input class="form-control -d none" type="text" id="modify-id" name="modify-id" placeholder="id" value="<?= $company['id'] ?>">
+            <input class="form-control -d none" type="text" id="modify-id" name="modify-id" placeholder="id" value="<?= $admin['id'] ?>">
           </div>
           <div class="mb-3 d-grid text-center form-group">
             <label for="modify-mail" class="form-label">mail</label>

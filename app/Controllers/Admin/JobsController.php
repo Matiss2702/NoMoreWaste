@@ -23,7 +23,7 @@ class JobsController extends ResourcePresenter
             'Jobs' => $this->model->findAll(),
             'is_login' => $session->get('isLoggedIn'),
         ];
-        return view('admin/Jobs', $data);
+        return view('admin/jobs', $data);
     }
 
     /**

@@ -23,8 +23,8 @@ class PlanningsController extends ResourcePresenter
         $DisponibilitysModel = new DisponibilitysModel();
         $session = \Config\Services::session();
         $data = [
-            'title' => 'utilisater',
-            'plannings' => $this->model->findAll(),
+            'title' => 'planning',
+            'planning' => $this->model->findAll(),
             'id_benevoles' => $BenevolesModel->findAll(),
             'id_disponibilitys' => $DisponibilitysModel->findAll(),
             'is_login' => $session->get('isLoggedIn'),

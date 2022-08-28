@@ -19,25 +19,25 @@
       </tr>
     </thead>
     <tbody>
-      <?php foreach ($Necesitys as $Necesity) : ?>
+      <?php foreach ($necessitys as $Necessity) : ?>
         <tr>
           <td><?= $Planning['id'] ?></td>
       <?php foreach ($id_jobs as $id_Jobs) : ?>
-        <?php if ($id_Jobs['id'] ==$Necesity['id_jobs']):?>
+        <?php if ($id_Jobs['id'] ==$Necessity['id_jobs']):?>
           <td><?= $id_Jobs['name'] ?></td>
         <?php endif; ?>
         <?php endforeach; ?>
 
 
         <?php foreach ($id_tasks as $id_Tasks) : ?>
-        <?php if ($id_Tasks['id'] ==$Necesity['id_tasks']):?>
+        <?php if ($id_Tasks['id'] ==$Necessitys['id_tasks']):?>
           <td><?= $id_Tasks['description'] ?></td>
         <?php endif; ?>
         <?php endforeach; ?>
 
 
-          <td><button type="button" class="btn btn-outline-success" onclick="modify_Necesitys('<?= $Necesity['id'] ?>', '<?= $Necesity['id_jobs'] ?>', '<?= $Necesity['id_tasks'] ?>')" data-bs-toggle="modal" data-bs-target="#modify-modal"><i class="fa-solid fa-pen"></i></button></td>
-          <td><button type="button" class="btn btn-outline-success" onclick="delete_modal('<?= $Necesity['id'] ?>')" data-bs-toggle="modal" data-bs-target="#delete-modal"><i class="fa-solid fa-trash-can"></i></button></td>
+          <td><button type="button" class="btn btn-outline-success" onclick="modify_Necesitys('<?= $Necessity['id'] ?>', '<?= $Necessity['id_jobs'] ?>', '<?= $Necessity['id_tasks'] ?>')" data-bs-toggle="modal" data-bs-target="#modify-modal"><i class="fa-solid fa-pen"></i></button></td>
+          <td><button type="button" class="btn btn-outline-success" onclick="delete_modal('<?= $Necessity['id'] ?>')" data-bs-toggle="modal" data-bs-target="#delete-modal"><i class="fa-solid fa-trash-can"></i></button></td>
         </tr>
       <?php endforeach; ?>
     </tbody>
@@ -63,7 +63,7 @@
         <div class="modal-body">
         <select class="form-select" id="add-id_jobs" name="add-id_jobs">
         <?php foreach ($id_jobs as $id_Jobs) : ?>
-            <option value="<?= $id_Benevoles['id'] ?>"><?= $id_Jobs['name'] ?></option>
+            <option value="<?= $id_Jobs['id'] ?>"><?= $id_Jobs['name'] ?></option>
             <?php endforeach; ?>
             </select>
 
@@ -96,7 +96,7 @@
         <div class="modal-body">
         <div class="mb-3 d-grid text-center form-group">
             <label for="modify-id" class="form-label d-none">id</label>
-            <input class="form-control d-none" type="text" id="modify-id" name="modify-id" value="id" value="<?= $Planning['id'] ?>">
+            <input class="form-control d-none" type="text" id="modify-id" name="modify-id" value="id" value="<?= $Necessity['id'] ?>">
           </div>
           <div class="mb-3 d-grid text-center form-group">
             <label for="modify-id_benevoles" class="form-label">id_jobs</label>

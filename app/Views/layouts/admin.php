@@ -51,7 +51,7 @@
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="/logout/">Logout</a></li>
+                    <li><a class="dropdown-item" href="/logout_admin/">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -62,38 +62,38 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         
-                        <a class="nav-link" href="/admin/Admins">
+                        <a class="nav-link" href="/admin/admins">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Admins
                         </a>
-                        <a class="nav-link" href="/admin/Benevoles">
+                        <a class="nav-link" href="/admin/benevoles">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Benevoles
                         </a>
-                        <a class="nav-link" href="/admin/Conditions">
+                        <a class="nav-link" href="/admin/conditions">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Conditions
                         </a> 
-                        <a class="nav-link" href="/admin/Disponibilitys">
+                        <a class="nav-link" href="/admin/disponibilitys">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Disponibilitys
                         </a>
-                        <a class="nav-link" href="/admin/Has_Conditions">
+                        <a class="nav-link" href="/admin/has_conditions">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Has_Conditions
-                        </a>  <a class="nav-link" href="/admin/Jobs">
+                        </a>  <a class="nav-link" href="/admin/jobs">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Jobs
                         </a>
-                        <a class="nav-link" href="/admin/Necessitys">
+                        <a class="nav-link" href="/admin/necessitys">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Necessitys
                         </a>
-                        <a class="nav-link" href="/admin/Plannings">
+                        <a class="nav-link" href="/admin/plannings">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Plannings
                         </a>
-                        <a class="nav-link" href="/admin/Tasks">
+                        <a class="nav-link" href="/admin/tasks">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Tasks
                         </a>

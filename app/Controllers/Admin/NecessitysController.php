@@ -24,7 +24,7 @@ class NecessitysController extends ResourcePresenter
         $session = \Config\Services::session();
         $data = [
             'title' => 'Necessitys',
-            'Necessitys' => $this->model->findAll(),
+            'necessitys' => $this->model->findAll(),
             'id_tasks' => $TasksModel->findAll(),
             'id_jobs' => $JobsModel->findAll(),
             'is_login' => $session->get('isLoggedIn'),
@@ -46,7 +46,7 @@ class NecessitysController extends ResourcePresenter
         $JobsModel = new JobsModel();
         $data = [
             'title'=> 'Necessitys',
-            'Necessitys' => $this->model->find($id),
+            'necessitys' => $this->model->find($id),
             'id_tasks' => $TasksModel->find($this->model->find($id)['id_tasks'],),
             'id_jobs' => $JobsModel->find($this->model->find($id)['id_jobs'],),
             'is_login' => $session->get('isLoggedIn'),

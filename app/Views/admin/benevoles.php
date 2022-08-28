@@ -27,7 +27,7 @@
       </tr>
     </thead>
     <tbody>
-      <?php foreach ($Benevoles as $Benevole) : ?>
+      <?php foreach ($benevoles as $Benevole) : ?>
         <tr>
           <td><?= $Benevole['id'] ?></td>
           <td><?= $Benevole['lastname'] ?></td>
@@ -43,7 +43,7 @@
           <td><button type="button" class="btn btn-outline-success" onclick="modify_Benevoles('<?= $Benevole['id'] ?>', '<?= $Benevole['lastname'] ?>', '<?= $Benevole['firstname'] ?>', '<?= $Benevole['password'] ?>',
           '<?= $Benevole['mail'] ?>', '<?= $Benevole['address'] ?>', '<?= $Benevole['city'] ?>',
           '<?= $Benevole['zipcode'] ?>', '<?= $Benevole['country'] ?>', '<?= $Benevole['phone'] ?>','<?= $Benevole['valided'] ?>')" data-bs-toggle="modal" data-bs-target="#modify-modal"><i class="fa-solid fa-pen"></i></button></td>
-          <td><button type="button" class="btn btn-outline-success" onclick="delete_modal('<?= $user['id'] ?>')" data-bs-toggle="modal" data-bs-target="#delete-modal"><i class="fa-solid fa-trash-can"></i></button></td>
+          <td><button type="button" class="btn btn-outline-success" onclick="delete_modal('<?= $Benevole['id'] ?>')" data-bs-toggle="modal" data-bs-target="#delete-modal"><i class="fa-solid fa-trash-can"></i></button></td>
         </tr>
       <?php endforeach; ?>
     </tbody>
@@ -137,35 +137,35 @@
           </div>
           <div class="mb-3 d-grid text-center form-group">
             <label for="modify-firstname" class="form-label">firstname</label>
-            <input class="form-control" type="text" id="modify-firstname" name="modify-firstname" value="<?= $user['firstname'] ?>">
+            <input class="form-control" type="text" id="modify-firstname" name="modify-firstname" value="<?= $Benevole['firstname'] ?>">
           </div>
           <div class="mb-3 d-grid text-center form-group">
             <label for="modify-lastname" class="form-label">lastname</label>
-            <input class="form-control" type="float" id="modify-lastname" name="modify-lastname" value="<?= $user['lastname'] ?>">
+            <input class="form-control" type="float" id="modify-lastname" name="modify-lastname" value="<?= $Benevole['lastname'] ?>">
           </div>
           <div class="mb-3 d-grid text-center form-group">
             <label for="modify-password" class="form-label">password</label>
-            <input class="form-control" type="password" id="modify-password" name="modify-password" value="<?= $user['password'] ?>">
+            <input class="form-control" type="password" id="modify-password" name="modify-password" value="<?= $Benevole['password'] ?>">
           </div>
           <div class="mb-3 d-grid text-center form-group">
             <label for="modify-mail" class="form-label">mail</label>
-            <input class="form-control" type="float" id="modify-mail" name="modify-mail" value="<?= $user['mail'] ?>">
+            <input class="form-control" type="float" id="modify-mail" name="modify-mail" value="<?= $Benevole['mail'] ?>">
           </div>
           <div class="mb-3 d-grid text-center form-group">
             <label for="modify-address" class="form-label">address</label>
-            <input class="form-control" type="text" id="modify-address" name="modify-address" value="<?= $user['address'] ?>">
+            <input class="form-control" type="text" id="modify-address" name="modify-address" value="<?= $Benevole['address'] ?>">
           </div>
           <div class="mb-3 d-grid text-center form-group">
             <label for="modify-city" class="form-label">city</label>
-            <input class="form-control" type="text" id="modify-city" name="modify-city" value="<?= $user['city'] ?>">
+            <input class="form-control" type="text" id="modify-city" name="modify-city" value="<?= $Benevole['city'] ?>">
           </div>
           <div class="mb-3 d-grid text-center form-group">
             <label for="modify-zipcode" class="form-label">zipcode</label>
-            <input class="form-control" type="text" id="modify-zipcode" name="modify-zipcode" value="<?= $user['zipcode'] ?>">
+            <input class="form-control" type="text" id="modify-zipcode" name="modify-zipcode" value="<?= $Benevole['zipcode'] ?>">
           </div>
           <div class="mb-3 d-grid text-center form-group">
             <label for="modify-country" class="form-label">country</label>
-            <input class="form-control" type="text" id="modify-country" name="modify-country" value="<?= $user['country'] ?>">
+            <input class="form-control" type="text" id="modify-country" name="modify-country" value="<?= $Benevole['country'] ?>">
           </div>
           <div class="mb-3 d-grid text-center form-group">
             <label for="modify-phone" class="form-label">phone</label>

@@ -20,15 +20,15 @@ class HomeController extends BaseController
         return view('home', $data);
     }
 
-    public function webgl()
+    public function recette()
     {
         $session = \Config\Services::session();
         $data = [
-            'title'=> 'WebGL',
+            'title'=> 'recette',
             'is_login' => $session->get('isLoggedIn'),
         ];
 
-        return view('webgl', $data);
+        return view('recette', $data);
     }
 
     public function faq()

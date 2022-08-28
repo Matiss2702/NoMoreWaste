@@ -6,8 +6,12 @@ use App\Models\AdminsModel;
 use CodeIgniter\API\ResponseTrait;
 use CodeIgniter\CLI\Console;
 
-class AuthController extends BaseController {
+class AdminAuthController extends BaseController {
     use ResponseTrait;
+
+    public function administrator() {
+        return view('admin/administrator');
+    }
 
     public function login() {
         $session = \Config\Services::session();
@@ -30,7 +34,6 @@ class AuthController extends BaseController {
                         'message' =>  'connexion réussi'
                     ];
                     return $this->respond($response);
-                    redirect('/admin');
                 }else{
                     return $this->fail('mauvais mot de passe');
                 }
