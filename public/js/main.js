@@ -28,18 +28,38 @@ function login(csrf_token) {
     }
   })
 }
-
+function condition(id){
+  repsonses = []
+        $("input[type=checkbox]:checked").each(function(){
+          responses.push($($(this)).val())
+        });
+  
+        $.ajax({
+          url: "/condition/",
+          type: "POST",
+          data: data,
+          success: function (reponse) {
+            toastr.options.timeOut = 750;
+            toastr.options.fadeOut = 1000;
+            toastr.options.onHidden = function () {
+              window.location.reload();
+            };
+            toastr.success(reponse.message)
+          },
+        })
+}
 function register(csrf_token) {
   lastname = $('#signup-lastname').val()
   firstname = $('#signup-firstname').val()
   mail = $('#signup-mail').val()
   password = $('#signup-password').val()
   pass_confirm = $('#signup-password-confirm').val()
+  job=$( "#job" ).val()
 
   $.ajax({
     url: "/register/",
     type: 'POST',
-    data: { lastname: lastname, firstname: firstname, mail: mail, password: password, pass_confirm: pass_confirm ,csrf_token_name: csrf_token },
+    data: { lastname: lastname, firstname: firstname, mail: mail, password: password, pass_confirm: pass_confirm , job:job, csrf_token_name: csrf_token },
     success: function (reponse) {
       toastr.options.timeOut = 750;
       toastr.options.fadeOut = 1000;

@@ -3,6 +3,10 @@
 namespace App\Controllers;
 
 use App\Models\BenevolesModel;
+use App\Models\JobsModel;
+use App\Models\Has_ConditionsModel;
+use App\Models\ConditionsModel;
+
 use CodeIgniter\API\ResponseTrait;
 
 
@@ -17,6 +21,7 @@ class RegisterController extends BaseController {
                 'firstname' => $this->request->getPost('firstname'),
                 'mail' => $this->request->getPost('mail'),
                 'password' => sha1($this->request->getPost('password')),
+                'id_jobs' => $this->request->getPost('job'),
         ];
 
         $register_rules = [
@@ -39,7 +44,7 @@ class RegisterController extends BaseController {
             ]
           ],
           'mail' => [
-            'rules' =>'required|valid_email|is_unique[users.mail]',
+            'rules' =>'required|valid_email|is_unique[benevoles.mail]',
             'errors' => [
               'required' => 'le mail est requis',
               'valid_email' => 'le mail doit etre valid',
@@ -74,7 +79,7 @@ class RegisterController extends BaseController {
           ];
           $email = \Config\Services::email(); // loading for use
           $email->setTo($data['mail']);
-          $email->setSubject('Activation de Votre Compte LoyaltyCard');
+          $email->setSubject('Activation de Votre Compte Nomorewaste');
           // Using a custom template
           $template = view('mail/activate-mail', $BenevolesInfo);
           $email->setMessage($template);
@@ -99,16 +104,69 @@ class RegisterController extends BaseController {
       $BenevolesModel =  new BenevolesModel();
       $id = substr($hash, 0, strpos($hash, 'a'));
       $Benevoles = $BenevolesModel->where('id', $id)->first();
-      if($user['valided'] == 0) {
+      if($Benevoles['valided'] == 0) {
         $data = [
           'valided' => '1'
         ];
         $BenevolesModel->update((int)$id,$data);
         $session->setFlashdata('activate', 'Votre compte a bien été activer');
-        return redirect('/');
+        return redirect('/job/'.$id);
       } else {
         $session->setFlashdata('activate', 'Votre compte est déjà activer');
         return redirect('/');
+      }
+    }
+    
+    public function job($id){
+      $jobs =  new BenevoleModel();
+      $conditions = new ConditionsModel();
+      $has_conditions = new Has_ConditionsModel();
+
+      $data = [
+        'title'=> 'Job',
+        'has_conditions' => $has_conditions->findAll(),
+        'jobs' => $jobs->where('id', $id)->first()['id_jobs'],
+        'conditions' => $conditions->findAll(),
+      ];
+
+      return view('job', $data);
+
+    }
+
+    public function condition() {
+      $email = \Config\Services::email(); // loading for use
+      $BenevolesModel =  new BenevolesModel();
+      $conditions = new ConditionM%odel();
+      $Benevoles = $BenevolesModel->where('mail', $this->request->getPost('mail'))->first();
+      $data = [
+        "benevole" => $Benevoles,
+        "job" => $this->request->getPost('job'),
+        "questions" => $conditions->findAll(),
+        "responses" => $this-> request->getPost('responses')
+      ];
+
+      $email->setTo('matiss.haillouy@gmail.com'); 
+      $email->setSubject('Demande de vérification emplois Nomorewaste');
+      // Using a custom template
+      $template = view('mail/job-mail', $data);
+      $email->setMessage($template);
+      // Send email
+      $reponse = [
+        'message' => 'Nouvelle demande de vérification d\'emplois'
+      ];
+      
+      if($this->validate($job_rules)){
+
+        if ($email->send()) {
+          $session->setFlashdata('job', 'vos informations ont bien été envoyé');
+          return redirect('/');
+        } else {
+          $session->setFlashdata('job', 'vos informations n\'ont pas été envoyé');
+          return redirect('/');
+        }
+      } else{
+        $errors = $validation->getErrors();
+        return $this->fail($errors);
       }
     }
 }

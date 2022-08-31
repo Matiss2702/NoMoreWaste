@@ -106,5 +106,56 @@ function modify_benevoles(id, fristname,lastname,password,address,city,phone,cou
       $("#modify-check-valided").attr('checked', false)
    }
 }
+function modify_admins(id, name, password) {
 
+   $('#modify-modal').attr('data-id', id)
+   $('#modify-name').val(name)
+   $('#modify-password').val(password)
+}
+function modify_Conditions(id, question) {
+
+   $('#modify-modal').attr('data-id', id)
+   $('#modify-question').val(question)
+
+}
+function modify_Disponibilitys(id, start,end) {
+
+   $('#modify-modal').attr('data-id', id)
+   $('#modify-start').val(start)
+   $('#modify-end').val(end)
+}
+function delete_Has_condition(id) {
+
+   $('#modify-modal').attr('data-id', id)
+
+}
+function modify_Jobs(id, name) {
+
+   $('#modify-modal').attr('data-id', id)
+   $('#modify-name').val(name)
+}
+function delete_Necessitys(id) {
+
+   $('#modify-modal').attr('data-id', id)
+}
+function modify_Plannings(id, lundi,mardi,mercredi,jeudi,vendredi) {
+
+   $('#modify-modal').attr('data-id', id)
+   $('#modify-lundi').val(lundi)
+   $('#modify-mardi').val(mardi)
+   $('#modify-mercredi').val(mercredi)
+   $('#modify-jeudi').val(jeudi)
+   $('#modify-vendredi').val(vendredi)
+   $('#modify-phone').val(phone)
+   $('#modify-country').val(country)
+   $('#modify-zipcode').val(zipcode)
+}
+function delete_Tasks(id, strat,end,place_start,description) {
+
+   $('#modify-modal').attr('data-id', id)
+   $('#modify-strat').val(strat)
+   $('#modify-end').val(end)
+   $('#modify-place_start').val(place_start)
+   $('#modify-description').val(description)
+}
 

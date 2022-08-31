@@ -14,8 +14,12 @@
     <thead>
       <tr>
         <th>id</th>
-        <th>lastname</th>
-        <th>firstname</th>
+        <th>lundi</th>
+        <th>mardi</th>
+        <th>mercredi</th>
+        <th>jeudi</th>
+        <th>vendredi</th>
+        <th>Nom Benevole</th>
         <th>start</th>
         <th>end</th>
       </tr>
@@ -24,6 +28,11 @@
       <?php foreach ($planning as $Plannings) : ?>
         <tr>
           <td><?= $Plannings['id'] ?></td>
+          <td><?= $Plannings['lundi'] ?></td>
+          <td><?= $Plannings['mardi'] ?></td>
+          <td><?= $Plannings['mercredi'] ?></td>
+          <td><?= $Plannings['jeudi'] ?></td>
+          <td><?= $Plannings['vendredi'] ?></td>
       <?php foreach ($id_benevoles as $id_Benevoles) : ?>
         <?php if ($id_Benevoles['id'] ==$Plannings['id_benevoles']):?>
           <td><?= $id_Benevoles['firstname'] ?></td>
@@ -40,7 +49,7 @@
         <?php endforeach; ?>
 
 
-          <td><button type="button" class="btn btn-outline-success" onclick="modify_Plannings('<?= $Plannings['id'] ?>', '<?= $Plannings['id_benevoles'] ?>', '<?= $Plannings['id_disponibilitys'] ?>')" data-bs-toggle="modal" data-bs-target="#modify-modal"><i class="fa-solid fa-pen"></i></button></td>
+          <td><button type="button" class="btn btn-outline-success" onclick="modify_Plannings('<?= $Plannings['id'] ?>','<?= $Plannings['lundi'] ?>','<?= $Plannings['mardi']?>','<?= $Plannings['mercredi'] ?>','<?= $Plannings['jeudi'] ?>','<?= $Plannings['vendredi'] ?>', '<?= $Plannings['id_benevoles'] ?>', '<?= $Plannings['id_disponibilitys'] ?>')" data-bs-toggle="modal" data-bs-target="#modify-modal"><i class="fa-solid fa-pen"></i></button></td>
           <td><button type="button" class="btn btn-outline-success" onclick="delete_modal('<?= $Plannings['id'] ?>')" data-bs-toggle="modal" data-bs-target="#delete-modal"><i class="fa-solid fa-trash-can"></i></button></td>
         </tr>
       <?php endforeach; ?>
@@ -65,6 +74,26 @@
 
         <!-- Modal body -->
         <div class="modal-body">
+        <div class="mb-3 d-grid text-center form-group">
+            <label for="add-lundi" class="form-label">lundi</label>
+            <input class="form-control" type="text" id="add-lundi" name="add-lundi" placeholder="lundi">
+          </div>
+          <div class="mb-3 d-grid text-center form-group">
+            <label for="add-mardi" class="form-label">mardi</label>
+            <input class="form-control" type="text" id="add-lastnmardiame" name="add-mardi" placeholder="mardi">
+          </div>
+          <div class="mb-3 d-grid text-center form-group">
+            <label for="add-lastnamercredime" class="form-label">mercredi</label>
+            <input class="form-control" type="text" id="add-mercredi" name="add-mercredi" placeholder="mercredi">
+          </div>
+          <div class="mb-3 d-grid text-center form-group">
+            <label for="add-jeudi" class="form-label">jeudi</label>
+            <input class="form-control" type="text" id="add-jeudi" name="add-jeudi" placeholder="jeudi">
+          </div>
+          <div class="mb-3 d-grid text-center form-group">
+            <label for="add-vendredi" class="form-label">vendredi</label>
+            <input class="form-control" type="text" id="add-vendredi" name="add-vendredi" placeholder="vendredi">
+          </div>
         <select class="form-select" id="add-id_benevoles" name="add-id_benevoles">
               <?php foreach ($id_benevoles as $id_Benevoles) : ?>
                 <option value="<?= $id_Benevoles['id'] ?>"><?= $id_Benevoles['firstname'] ?>
@@ -102,6 +131,25 @@
         <div class="mb-3 d-grid text-center form-group">
             <label for="modify-id" class="form-label d-none">id</label>
             <input class="form-control d-none" type="text" id="modify-id" name="modify-id" value="id" value="<?= $Plannings['id'] ?>">
+          </div>
+          <div class="mb-3 d-grid text-center form-group">
+            <label for="modify-id" class="form-label d-none">id</label>
+            <input class="form-control d-none" type="text" id="modify-id" name="modify-id" value="id" value="<?= $Plannings['lundi'] ?>">
+          </div>
+          <div class="mb-3 d-grid text-center form-group">
+            <label for="modify-id" class="form-label d-none">id</label>
+            <input class="form-control d-none" type="text" id="modify-id" name="modify-id" value="id" value="<?= $Plannings['mardi'] ?>">
+          </div>
+          <div class="mb-3 d-grid text-center form-group">
+            <label for="modify-id" class="form-label d-none">id</label>
+            <input class="form-control d-none" type="text" id="modify-id" name="modify-id" value="id" value="<?= $Plannings['mercredi'] ?>">
+          </div>
+          <div class="mb-3 d-grid text-center form-group">
+            <label for="modify-id" class="form-label d-none">id</label>
+            <input class="form-control d-none" type="text" id="modify-id" name="modify-id" value="id" value="<?= $Plannings['jeudi'] ?>">
+          </div>      <div class="mb-3 d-grid text-center form-group">
+            <label for="modify-id" class="form-label d-none">id</label>
+            <input class="form-control d-none" type="text" id="modify-id" name="modify-id" value="id" value="<?= $Plannings['vendredi'] ?>">
           </div>
           <div class="mb-3 d-grid text-center form-group">
             <label for="modify-id_benevoles" class="form-label">id_benevoles</label>

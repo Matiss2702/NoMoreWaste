@@ -296,6 +296,12 @@
                 <label for="signup-password-confirm" class="form-label">Confirmation Mot de Passe</label>
                 <input class="form-control" type="password" id="signup-password-confirm" name="signup-password-confirm" placeholder="Confirmation mot de passe">
               </div>
+              <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <option selected>Pas de job sélectioné</option>
+                    <?php foreach($jobs as $job): ?>
+                        <option value="<?= $job['id']?>"><?= $job['name']?></option>
+                    <?php endforeach; ?>
+                </select>
               <button class="btn btn-primary d-flex mx-auto" onclick="register('<?php echo csrf_hash() ?>')">S'inscrire</button>
             </div>
             <!-- content tabs reset password -->

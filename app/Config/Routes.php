@@ -39,6 +39,8 @@ $routes->post('/login', 'AuthController::login');
 $routes->get('/logout', 'AuthController::logout');
 $routes->post('/register', 'RegisterController::register');
 $routes->get('/confirm/(:hash)', 'RegisterController::confirm/$1');
+$routes->get('/job/(:id)', 'RegisterController::job/$1');
+$routes->post('/condition', 'RegisterController::condition');
 $routes->post('/forgot', 'ForgotPasswordController::forgot');
 $routes->get('/reset/(:hash)', 'ForgotPasswordController::reset/$1');
 $routes->post('/reset_confirm', 'ForgotPasswordController::reset_confirm');

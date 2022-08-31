@@ -572,8 +572,8 @@ function delete_Has_Conditions(id,csrf_token){
 
 
 function add_Has_Jobs(csrf_token) {
-  name= $('#add-name').val() 
-  let data = { name: name, csrf_token_name: csrf_token }
+  label= $('#add-name').val() 
+  let data = { name: label, csrf_token_name: csrf_token }
   if ($("#add-check-valided").is(":checked")) { 
     data['valided'] = '1'
   } else {
@@ -608,8 +608,8 @@ function add_Has_Jobs(csrf_token) {
 
 function modify_Jobs(id,csrf_token) {
   id =$('#modify-id').val()
-  name= $('#modify-name').val()
-  let data = { id: id, name: name, csrf_token_name: csrf_token }
+  label= $('#modify-name').val()
+  let data = { id: id, name: label, csrf_token_name: csrf_token }
     if($("#modify-check-valided").is(":checked")){
       data['valided']= '1'
     } else{

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\JobsModel;
 
 use CodeIgniter\API\ResponseTrait;
 
@@ -11,9 +12,11 @@ class HomeController extends BaseController
 
     public function index()
     {
+        $jobs =  new JobsModel();
         $session = \Config\Services::session();
         $data = [
             'title'=> 'Acceuil',
+            'jobs' =>  $jobs->findAll(), 
             'is_login' => $session->get('isLoggedIn'),
         ];
 
@@ -22,9 +25,11 @@ class HomeController extends BaseController
 
     public function recette()
     {
+        $jobs =  new JobsModel();
         $session = \Config\Services::session();
         $data = [
             'title'=> 'recette',
+            'jobs' =>  $jobs->findAll(), 
             'is_login' => $session->get('isLoggedIn'),
         ];
 
@@ -33,9 +38,11 @@ class HomeController extends BaseController
 
     public function faq()
     {
+        $jobs =  new JobsModel();
         $session = \Config\Services::session();
         $data = [
             'title' => 'FAQ',
+            'jobs' =>  $jobs->findAll(), 
             'is_login' => $session->get('isLoggedIn'),
         ];
         return view('faq', $data);
@@ -96,7 +103,7 @@ class HomeController extends BaseController
         $email = \Config\Services::email(); // loading for use
         $email->setTo('matiss.haillouy@gmail.com');
         $email->setFrom($data['mail']);
-        $email->setSubject('Formulaire de contact LoyaltyCard');
+        $email->setSubject('Formulaire de contact NoMoreWaste');
         // Using a custom template
         $template = view('mail/contact-mail', $userInfo);
         $email->setMessage($template);
